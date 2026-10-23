@@ -2,7 +2,7 @@ import flet as ft
 
 # LAYOUT E ESPAÇAMENTO FEITO POR MIM
 # ESTILIZAÇÃO FEITA POR IA
-def main(page: ft.Page):
+async def main(page: ft.Page):
     page.title = 'Atividade Prática | Flet com GitHub'
     page.scroll = ft.ScrollMode.AUTO
     page.bgcolor = "#0E0E10"
@@ -14,7 +14,7 @@ def main(page: ft.Page):
     page.window.min_width = 600
     page.window.min_height = 800
     page.window.resizable = True
-    page.window.center()
+    await page.window.center()
     page.fonts = {
         "Poppins": "https://raw.githubusercontent.com/google/fonts/main/ofl/poppins/Poppins-Regular.ttf"
     }
@@ -72,7 +72,7 @@ def main(page: ft.Page):
                     alignment=ft.MainAxisAlignment.CENTER,
                     spacing=16,
                     controls=[
-                        ft.ElevatedButton(
+                        ft.FilledButton(
                             content='Meu Perfil',
                             icon=ft.Icons.PERSON,
                             bgcolor="#6C63FF",
@@ -82,7 +82,7 @@ def main(page: ft.Page):
                                 shape=ft.RoundedRectangleBorder(radius=10),
                             ),
                         ),
-                        ft.ElevatedButton(
+                        ft.FilledButton(
                             content='Projetos',
                             icon=ft.Icons.CODE,
                             bgcolor="#1E1E22",
@@ -104,4 +104,4 @@ def main(page: ft.Page):
 
 
 if __name__ == '__main__':
-    ft.app(target=main)
+    ft.run(main=main)
